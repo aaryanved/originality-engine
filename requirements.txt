@@ -1,0 +1,12 @@
+sentence-transformers
+spacy
+scikit-learn
+numpy
+pandas
+faiss-cpu
+umap-learn
+networkx
+streamlit
+python-dotenv
+tqdm
+requests
