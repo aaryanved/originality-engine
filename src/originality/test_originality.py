@@ -1,3 +1,4 @@
+from src.explain.report import generate_explanation
 from src.originality.semantic import SemanticOriginality
 from src.originality.density import DensityEstimator
 from src.originality.score import OriginalityScorer
@@ -29,3 +30,6 @@ if __name__ == "__main__":
     print("\n=== NEAREST IDEAS ===")
     for n in semantic_result["neighbors"][:3]:
         print("-", n["text"][:120], "...")
+
+    print("\n=== EXPLANATION ===")
+    print(generate_explanation(idea, semantic_result["neighbors"]))
