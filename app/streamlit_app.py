@@ -16,9 +16,9 @@ st.set_page_config(
     layout="centered",
 )
 
-st.title("🧠 Originality Engine")
+st.title("The Originality Engine")
 st.write(
-    "Measure how original an idea is relative to a corpus of computer science research abstracts."
+    "A system to measure conceptual originality using semantic, structural, and recombination analysis"
 )
 
 @st.cache_resource
@@ -46,16 +46,16 @@ if st.button("Evaluate Originality"):
             local_density = density.local_density(idea)
             score, percentile = scorer.originality_percentile(idea, baseline)
 
-        st.subheader("📊 Originality Results")
+        st.subheader("Originality Results")
         st.metric("Originality Percentile", f"{percentile:.2f}%")
         st.write(f"**Average semantic distance:** {semantic_result['avg_distance']:.3f}")
         st.write(f"**Closest existing idea distance:** {semantic_result['min_distance']:.3f}")
         st.write(f"**Nearby ideas (local density):** {local_density}")
 
-        st.subheader("🧠 Explanation")
+        st.subheader("Explanation")
         st.write(generate_explanation(idea, semantic_result["neighbors"]))
 
-        st.subheader("🔍 Nearest Existing Ideas")
+        st.subheader("Nearest Existing Ideas")
         for i, n in enumerate(semantic_result["neighbors"][:3], 1):
             with st.expander(f"Neighbor {i} (distance: {n['distance']:.3f})"):
                 st.write(n["text"])
